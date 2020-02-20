@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ru.gmasalskih.myweather.WeatherFragment">
+
+    <data>
+        <variable
+            name="wearher"
+            type="ru.gmasalskih.myweather.data.Weather" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/design_default_color_secondary">
+
+        <TextView
+            android:id="@+id/currentData"
+            android:layout_width="347dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="@={wearher.currentData}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="CurrentDate" />
+
+        <ImageView
+            android:id="@+id/iconOfWeather"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentData"
+            app:srcCompat="@drawable/ic_001_sunny" />
+
+        <TextView
+            android:id="@+id/degrees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="36sp"
+            android:text="@={wearher.degrees}"
+            app:layout_constraintStart_toStartOf="@+id/iconOfWeather"
+            app:layout_constraintTop_toBottomOf="@+id/iconOfWeather"
+            tools:text="10 ℃" />
+
+        <TextView
+            android:id="@+id/wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@={wearher.wind}"
+            app:layout_constraintBottom_toTopOf="@+id/humidity"
+            app:layout_constraintEnd_toEndOf="@+id/iconOfWeather"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/degrees"
+            app:layout_constraintTop_toTopOf="@+id/degrees"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            tools:text="20 m/s" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:text="@={wearher.humidity}"
+            app:layout_constraintBottom_toBottomOf="@+id/degrees"
+            app:layout_constraintEnd_toEndOf="@+id/iconOfWeather"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/degrees"
+            app:layout_constraintTop_toBottomOf="@+id/wind"
+            tools:text="80%" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="347dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="36sp"
+            android:text="@={wearher.city}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/degrees"
+            tools:text="Moscow" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

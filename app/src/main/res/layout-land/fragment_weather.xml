@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="wearher"
+            type="ru.gmasalskih.myweather.data.Weather" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/design_default_color_secondary">
+
+
+        <TextView
+            android:id="@+id/currentData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="@={wearher.currentData}"
+            app:layout_constraintBottom_toTopOf="@+id/degrees"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iconOfWeather"
+            app:layout_constraintTop_toTopOf="@+id/iconOfWeather"
+            app:layout_constraintVertical_chainStyle="spread"
+            tools:text="CurrentDate" />
+
+        <TextView
+            android:id="@+id/degrees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            android:text="@={wearher.degrees}"
+            app:layout_constraintBottom_toTopOf="@+id/city"
+            app:layout_constraintEnd_toStartOf="@+id/humidity"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/iconOfWeather"
+            app:layout_constraintTop_toBottomOf="@+id/currentData"
+            tools:text="10 ℃" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center"
+            android:textSize="36sp"
+            android:text="@={wearher.city}"
+            app:layout_constraintBottom_toBottomOf="@+id/iconOfWeather"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iconOfWeather"
+            app:layout_constraintTop_toBottomOf="@+id/degrees"
+            tools:text="Moscow" />
+
+        <ImageView
+            android:id="@+id/iconOfWeather"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_001_sunny" />
+
+        <TextView
+            android:id="@+id/wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            android:text="@={wearher.wind}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/degrees"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/humidity"
+            tools:text="20 m/s" />
+
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="36sp"
+            android:text="@={wearher.humidity}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/degrees"
+            app:layout_constraintEnd_toStartOf="@+id/wind"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/degrees"
+            tools:text="80%" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
